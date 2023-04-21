@@ -16,19 +16,26 @@ The directories and functions are like this:
 `/`: Root directory of the repo
 - `F103RC`: For STM32 F103 RC series MCU
 	- `Blueprints`: 图纸
-		- (上一版)MINI-STM32 硬件图纸
-		- (新版)MINI-STM32 硬件图纸
-		- (上一版)MINI-STM32--原理图.pdf
-		- (新版)MINI-STM32--原理图.pdf
+		- `(上一版)MINI-STM32 硬件图纸`
+		- `(新版)MINI-STM32 硬件图纸`
+		- `(上一版)MINI-STM32--原理图.pdf`
+		- `(新版)MINI-STM32--原理图.pdf`
 	- `HAL`: STM32 F103 RC HAL library support
 		- `KEY`: Hardware/KEY
+		  - `key.c`
+		  - `key.h`
 		- `LED`: Hardware/LED
+		  - `led.c`
+		  - `led.h`
 	- `STD`: STM32 F103 RC STD library support
 - `F103VE`: For STM32 F103 VE series MCU
 	- `Blueprints`: 图纸
+	  - `野火_指南者原理图_2020-05-06.pdf`
 	- `HAL`: STM32 F103 VE HAL library support
-		- `KEY`: Hardware/KEY
-		- `LED`: Hardware/LED
+	  - `KEY`: Hardware/KEY
+	    - `key.c`
+	    - `key.h`
+	  - `LED`: Hardware/LED
+	    - `led.c`
+	    - `led.h`
 	- `STD`: STM32 F103 VE STD library support
-
-------------------------------------------------------
