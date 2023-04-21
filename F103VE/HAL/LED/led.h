@@ -16,6 +16,11 @@
 
 #include "main.h"
 
+#define LED_GPIO_OUT // comment this line if you use pwm, uncomment this line if you use gpio output
+#define LED_PWM_OUT  // comment this line if you use gpio output, uncomment this line if you use pwm
+
+#ifdef LED_GPIO_OUT
+
 #define LED_R_ON() HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_RESET)
 #define LED_R_OFF() HAL_GPIO_WritePin(LED_R_GPIO_Port, LED_R_Pin, GPIO_PIN_SET)
 #define LED_R_TOGGLE() HAL_GPIO_TogglePin(LED_R_GPIO_Port, LED_R_Pin)
@@ -27,6 +32,10 @@
 #define LED_B_ON() HAL_GPIO_WritePin(LED_B_GPIO_Port, LED_B_Pin, GPIO_PIN_RESET)
 #define LED_B_OFF() HAL_GPIO_WritePin(LED_B_GPIO_Port, LED_B_Pin, GPIO_PIN_SET)
 #define LED_B_TOGGLE() HAL_GPIO_TogglePin(LED_B_GPIO_Port, LED_B_Pin)
+
+#endif /* LED GPIO Out functions */
+
+#ifdef LED_PWM_OUT
 
 /**
  * @brief LED control function
@@ -43,5 +52,7 @@ void LED_RGB(uint8_t r, uint8_t g, uint8_t b);
  * @param hex Hexadecimal color code. (0x000000~0xFFFFFF)(000000H~FFFFFFH), out of range is invalid, set to 0
  */
 void LED_Hex(uint32_t hex);
+
+#endif /* defined LED_PWM_OUT */
 
 #endif

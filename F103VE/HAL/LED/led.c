@@ -1,5 +1,7 @@
 #include "led.h"
 
+#ifdef LED_PWM_OUT
+
 void LED_RGB(uint8_t r, uint8_t g, uint8_t b)
 {
     if (r > 255)
@@ -21,3 +23,5 @@ void LED_Hex(uint32_t hex)
     TIM3->CCR3 = (hex >> 8) & 0xFF;
     TIM3->CCR4 = hex & 0xFF;
 }
+
+#endif /* defined LED_PWM_OUT */

@@ -1,4 +1,4 @@
-# Board Support Package (BSP) For Neolux Lee
+# Board Support Package (BSP) of Neolux Lee
 
 ## Abstract
 
@@ -35,7 +35,7 @@ The directories and functions are like this:
 	  - `KEY`: Hardware/KEY
 	    - `key.c`
 	    - `key.h`
-	  - `LED`: Hardware/LED
+	  - `LED`: [Hardware/LED](./F103VE/HAL/LED/led.md)
 	    - `led.c`
 	    - `led.h`
 	- `STD`: STM32 F103 VE STD library support
