@@ -11,10 +11,26 @@
  * @copyright Copyright (c) 2023
  *
  */
+
 #ifndef __LED_H__
 #define __LED_H__
 
 #include "main.h"
+#include "stdio.h"
+
+#define __LED_DEBUG
+
+#ifdef __LED_DEBUG
+
+#define led_info(format, ...) printf("[led.c] info:  " format "\r\n", ##__VA_ARGS__)
+#define led_debug(format, ...) printf("[led.c] debug: " format "\r\n", ##__VA_ARGS__)
+#define led_error(format, ...) printf("[led.c] error: " format "\r\n", ##__VA_ARGS__)
+#else
+
+#define led_info(format, ...)
+#define led_debug(format, ...)
+#define led_error(format, ...)
+#endif
 
 #define LED_GPIO_OUT // comment this line if you use pwm, uncomment this line if you use gpio output
 #define LED_PWM_OUT  // comment this line if you use gpio output, uncomment this line if you use pwm

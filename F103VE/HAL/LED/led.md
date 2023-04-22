@@ -1,5 +1,39 @@
 # STM32F103VE LED
 
+## CubeMX Settings
+
+1. Set the lights ports and pin to timer channel
+
+2. Set label of the red light to LED_R, and same to the green and blue one
+
+   ![image-20230422012733777](led/image-20230422012733777-16820980592481.png)
+
+3. Set every channel to `PWM Generation CHx`
+
+   ![image-20230422013118852](led/image-20230422013118852.png)
+
+4. In timer parameter settings, set the prescaler to 72-1, and counter period to 265-1. 
+
+   ![image-20230422012918771](led/image-20230422012918771-16820981642512.png)
+
+5. Then set the polarity of every light to low
+
+   ![image-20230422013003761](led/image-20230422013003761.png)
+
+6. Generate Code. 
+
+7. Enable the PWM. 
+
+   ```C
+     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
+     HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
+   ```
+
+   
+
+
+
 ## Usage
 
 It's okay to just use GPIO to control the LED lights. 

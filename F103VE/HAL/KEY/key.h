@@ -12,7 +12,21 @@
 #define __KEY_H__
 
 #include "main.h"
-#include "stm32f1xx_hal.h"
+#include "stdio.h"
+
+#define __KEY_DEBUG
+
+#ifdef __KEY_DEBUG
+
+#define key_info(format, ...) printf("[key.c] info:  " format "\r\n", ##__VA_ARGS__)
+#define key_debug(format, ...) printf("[key.c] debug: " format "\r\n", ##__VA_ARGS__)
+#define key_error(format, ...) printf("[key.c] error: " format "\r\n", ##__VA_ARGS__)
+#else
+
+#define key_info(format, ...)
+#define key_debug(format, ...)
+#define key_error(format, ...)
+#endif
 
 #define KEY1 HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin)
 #define KEY2 HAL_GPIO_ReadPin(KEY2_GPIO_Port, KEY2_Pin)
@@ -22,9 +36,9 @@
 #define NONE_PRESSED 0
 
 /**
- * @brief É¨Ãè°´¼ü
+ * @brief Function for key scan
  *
- * @param mode 0, ²»Ö§³ÖÁ¬°´; 1, Ö§³ÖÁ¬°´
+ * @param mode 0 æ”¯æŒè¿ç»­æŒ‰é”®ï¼Œ1 æ”¯æŒå•æ¬¡æŒ‰é”®
  * @return uint8_t
  */
 uint8_t KEY_Scan(int mode);
